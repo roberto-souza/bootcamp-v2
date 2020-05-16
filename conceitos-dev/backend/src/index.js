@@ -76,7 +76,7 @@ app.delete("/projects/:id", (request, response) => {
     return response.status(400).json({ error: "Project not found" });
   }
 
-  projects.slice(projectIndex, 1);
+  projects.splice(projectIndex, 1);
 
   return response.sendStatus(204);
 });
