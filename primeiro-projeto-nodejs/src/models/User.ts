@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('users')
+@Entity('users', { name: 'users' })
 class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -20,10 +20,10 @@ class User {
   @Column()
   password: string;
 
-  @CreateDateColumn({ name: 'created_at ' })
+  @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at ' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 }
 
