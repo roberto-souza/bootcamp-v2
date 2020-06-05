@@ -1,9 +1,9 @@
 import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 
-import AppError from '../errors/AppErrors';
+import AppError from '@shared/errors/AppErrors';
 
-import User from '../models/User';
+import User from '@modules/users/infra/typeorm/entities/User';
 
 interface RequestDTO {
   name: string;
