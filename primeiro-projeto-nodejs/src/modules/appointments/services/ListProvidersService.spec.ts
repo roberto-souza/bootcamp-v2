@@ -11,7 +11,7 @@ describe('ListProviders', () => {
     listProviders = new ListProvidersService(fakeUserRepository);
   });
 
-  it('should be able show the profile', async () => {
+  it('should be able to list the providers', async () => {
     const user1 = await fakeUserRepository.create({
       name: 'Roberto 1',
       email: 'contato1@roberto.com.br',
