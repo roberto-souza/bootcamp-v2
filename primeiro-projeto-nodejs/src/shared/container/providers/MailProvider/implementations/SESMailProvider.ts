@@ -6,7 +6,7 @@ import mailConfig from '@config/mail';
 
 import IMailTemplateProvider from '@shared/container/providers/MailTemplateProvider/models/IMailTemplateProvider';
 import IMailProvder from '../models/IMailProvider';
-import ISendMailDTO from '../ISendMailDTO';
+import ISendMailDTO from '../dtos/ISendMailDTO';
 
 @injectable()
 class SESMailProvider implements IMailProvder {
