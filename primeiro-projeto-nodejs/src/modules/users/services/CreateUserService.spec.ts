@@ -1,22 +1,26 @@
 import AppError from '@shared/errors/AppErrors';
 
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeUserRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import CreateUserService from './CreateUserService';
 
 let fakeUserRepository: FakeUserRepository;
 let fakeHashProvider: FakeHashProvider;
+let fakeCacheProvider: FakeCacheProvider;
 
 describe('CreateUser', () => {
   beforeEach(() => {
     fakeUserRepository = new FakeUserRepository();
     fakeHashProvider = new FakeHashProvider();
+    fakeCacheProvider = new FakeCacheProvider();
   });
 
   it('should be able to create a new user', async () => {
     const createUser = new CreateUserService(
       fakeUserRepository,
       fakeHashProvider,
+      fakeCacheProvider,
     );
 
     const user = await createUser.execute({
@@ -32,6 +36,7 @@ describe('CreateUser', () => {
     const createUser = new CreateUserService(
       fakeUserRepository,
       fakeHashProvider,
+      fakeCacheProvider,
     );
 
     await createUser.execute({

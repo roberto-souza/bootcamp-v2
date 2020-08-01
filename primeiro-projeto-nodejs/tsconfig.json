@@ -19,5 +19,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["coverage/*", "./jest.config.js"]
+  "exclude": ["coverage/*"]
 }

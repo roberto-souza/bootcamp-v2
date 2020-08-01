@@ -3,7 +3,6 @@ import AppError from '@shared/errors/AppErrors';
 import FakeUserRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import AuthenticateUserService from './AuthenticateUserService';
-import CreateUserService from './CreateUserService';
 
 let fakeUserRepository: FakeUserRepository;
 let fakeHashProvider: FakeHashProvider;
@@ -19,12 +18,8 @@ describe('AuthenticateUser', () => {
       fakeUserRepository,
       fakeHashProvider,
     );
-    const createUser = new CreateUserService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
 
-    const user = await createUser.execute({
+    const user = await fakeUserRepository.create({
       name: 'Roberto',
       email: 'contato@robertosouza.com.br',
       password: '123123',
@@ -58,12 +53,8 @@ describe('AuthenticateUser', () => {
       fakeUserRepository,
       fakeHashProvider,
     );
-    const createUser = new CreateUserService(
-      fakeUserRepository,
-      fakeHashProvider,
-    );
 
-    await createUser.execute({
+    await fakeUserRepository.create({
       name: 'Roberto Souza',
       email: 'contato@robertosouza.com.br',
       password: '123123',
