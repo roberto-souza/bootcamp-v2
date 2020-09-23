@@ -27,6 +27,7 @@
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "import/extensions": ["off", "ignorePackages", { "ts": "never", "tsx": "never" }],
+    "import/no-duplicates": "off",
     "no-unused-expressions": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
