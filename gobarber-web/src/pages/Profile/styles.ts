@@ -74,7 +74,8 @@ export const AvatarInput = styled.div`
     height: 186px;
   }
 
-  button {
+  label {
+    cursor: pointer;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -91,6 +92,10 @@ export const AvatarInput = styled.div`
 
     &:hover {
       background: ${shade(0.2, '#ff9900')};
+    }
+
+    input {
+      display: none;
     }
 
     svg {
