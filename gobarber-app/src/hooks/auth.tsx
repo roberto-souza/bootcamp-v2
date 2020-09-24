@@ -11,7 +11,7 @@ interface User {
 }
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 
 interface SignInCredentials {
@@ -33,17 +33,18 @@ const AuthProvider: React.FC = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadStoragedData(): Promise<void> {
+    async function loadStoredData(): Promise<void> {
       const [token, user] = await AsyncStorage.multiGet(['@GoBarber:token', '@GoBarber:user']);
 
       if (token[1] && user[1]) {
+        api.defaults.headers.Authorization = `Bearer ${token[1]}`;
         setData({ token: token[1], user: JSON.parse(user[1]) });
       }
 
       setLoading(false);
     }
 
-    loadStoragedData();
+    loadStoredData();
   }, []);
 
   const signIn = useCallback(async ({ email, password }) => {
@@ -55,6 +56,8 @@ const AuthProvider: React.FC = ({ children }) => {
       ['@GoBarber:token', token],
       ['@GoBarber:user', JSON.stringify(user)],
     ]);
+
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setData({ token, user });
   }, []);
